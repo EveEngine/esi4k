@@ -1,0 +1,7 @@
+.gradle/*
+.idea
+/build
+/gradle/wrapper/gradle-wrapper.jar
+
+/src/main/kotlin/net/letgio/esi4k/Application.*
+/src/test/resources/test.properties
