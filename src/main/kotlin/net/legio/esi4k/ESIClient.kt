@@ -50,7 +50,7 @@ class ESIClient {
     }
 
     private fun createHttpRequest(esiRequest: ESIRequest): HttpRequestBase {
-        val uri = createUri(esiRequest.endpoint?:"", esiRequest.params())
+        val uri = createUri(esiRequest.endpoint?:"/", esiRequest.params())
         val request = when(esiRequest.method){
             HttpMethod.GET -> HttpGet(uri)
             HttpMethod.POST -> HttpPost(uri).apply { entity = StringEntity(esiRequest.body) }

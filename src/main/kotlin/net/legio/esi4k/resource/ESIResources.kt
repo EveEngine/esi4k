@@ -27,6 +27,18 @@ abstract class ESIResources(var client: ESIClient, var version: Version, var dat
         }.execute()
     }
 
+    protected fun createRequest(endpoint: String, httpMethod: HttpMethod = HttpMethod.GET, authorization: Boolean = false, body: String? = null): ESIRequest {
+        return client.createESIRequest("/${version.value}/${endpoint}", httpMethod).apply {
+            addQueryParam("datasource", datasource.value)
+            if (authorization) {
+                client.accessToken?.let {
+                    addHeader(ESIHeader.AUTHORIZATION, it)
+                }
+            }
+            this.body = body
+        }
+    }
+
     inline fun <reified T> responseToEntity(esiResponse: ESIResponse): ReifyResult<T>{
         return when(esiResponse){
             is ESISuccessResponse -> reifyContent(esiResponse.content)

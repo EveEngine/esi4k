@@ -1,4 +1,4 @@
-package net.legio.esi4k.resource
+package net.legio.esi4k.model
 
 import com.fasterxml.jackson.annotation.JsonProperty
 

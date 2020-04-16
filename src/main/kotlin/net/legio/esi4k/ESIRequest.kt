@@ -8,6 +8,7 @@ class ESIRequest(val client: ESIClient, var method: HttpMethod = HttpMethod.GET,
     private val headers: MutableMap<ESIHeader, String> = EnumMap(ESIHeader::class.java)
     private val queryParams: MutableMap<String, MutableSet<String>> = HashMap()
     var body: String? = null
+    var page: Int = 0
 
     fun addHeader(header: ESIHeader, value: String) {
         headers[header] = value
@@ -40,6 +41,8 @@ class ESIRequest(val client: ESIClient, var method: HttpMethod = HttpMethod.GET,
     }
 
     fun params(): List<Pair<String, Set<String>>> {
+        if(page > 0) addQueryParam("page", page.toString())
+        queryParams.map { e -> Pair(e.key, e.value) }
         return queryParams.map { e -> Pair(e.key, e.value) }
     }
 

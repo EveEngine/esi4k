@@ -7,12 +7,15 @@ import net.legio.esi4k.model.AssetName
 
 class AssetResources(client: ESIClient, version: Version = Version.LATEST, datasource: Datasource = Datasource.TRANQUILITY): ESIResources(client, version, datasource) {
 
-    fun characterAssetsRaw(characterId: Int): ESIResponse {
-        return callExecute("/characters/$characterId/assets",  authorization = true)
+    fun characterAssetsRaw(characterId: Int, page: Int = 1): ESIResponse {
+        return with(createRequest("/characters/$characterId/assets", authorization = true)){
+            this.page = page
+            execute()
+        }
     }
 
-    fun characterAssets(characterId: Int): ReifyResult<List<Asset>> {
-        return characterAssets(characterAssetsRaw(characterId))
+    fun characterAssets(characterId: Int, page: Int = 1): ReifyResult<List<Asset>> {
+        return characterAssets(characterAssetsRaw(characterId, page))
     }
 
     fun characterAssets(esiResponse: ESIResponse): ReifyResult<List<Asset>> {
@@ -43,12 +46,15 @@ class AssetResources(client: ESIClient, version: Version = Version.LATEST, datas
         return responseToEntityList(esiResponse)
     }
 
-    fun corporationAssetsRaw(corporationId: Int): ESIResponse {
-        return callExecute("/corporations/$corporationId/assets", authorization = true)
+    fun corporationAssetsRaw(corporationId: Int, page: Int = 1): ESIResponse {
+        return with(createRequest("/corporations/$corporationId/assets", authorization = true)){
+            this.page = page
+            execute()
+        }
     }
 
-    fun corporationAssets(corporationId: Int): ReifyResult<List<Asset>> {
-        return corporationAssets(corporationAssetsRaw(corporationId))
+    fun corporationAssets(corporationId: Int, page: Int = 1): ReifyResult<List<Asset>> {
+        return corporationAssets(corporationAssetsRaw(corporationId, page))
     }
 
     fun corporationAssets(esiResponse: ESIResponse): ReifyResult<List<Asset>> {

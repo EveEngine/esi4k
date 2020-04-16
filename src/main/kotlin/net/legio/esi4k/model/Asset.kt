@@ -1,7 +1,6 @@
 package net.legio.esi4k.model
 
 import com.fasterxml.jackson.annotation.JsonProperty
-import net.legio.esi4k.resource.Position
 
 data class Asset(
     @JsonProperty("is_blueprint_copy") val isBlueprintCopy: Boolean?,
