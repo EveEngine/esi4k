@@ -7,3 +7,8 @@ data class Position (
     @JsonProperty("y") val y: Double,
     @JsonProperty("z") val z: Double
 )
+
+
+enum class LocationType {
+    Station, SolarSystem, Item, Other
+}
