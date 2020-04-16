@@ -3,5 +3,5 @@
 /build
 /gradle/wrapper/gradle-wrapper.jar
 
-/src/main/kotlin/net/letgio/esi4k/Application.*
+/src/main/kotlin/net/legio/esi4k/app
 /src/test/resources/test.properties
