@@ -2,7 +2,6 @@ package net.legio.esi4k.resource
 
 import net.legio.esi4k.*
 import net.legio.esi4k.model.*
-import javax.sound.sampled.Port
 
 
 class CharacterResources(esiClient: ESIClient, version: Version, datasource: Datasource): ESIResources(esiClient, version, datasource) {
@@ -160,11 +159,11 @@ class CharacterResources(esiClient: ESIClient, version: Version, datasource: Dat
         return callExecute("/characters/$characterId/titles", authorization = true)
     }
 
-    fun characterTitles(characterId: Int): ReifyResult<List<Title>> {
+    fun characterTitles(characterId: Int): ReifyResult<List<CharacterTitle>> {
         return characterTitles(characterTitlesRaw(characterId))
     }
 
-    fun characterTitles(esiResponse: ESIResponse): ReifyResult<List<Title>> {
+    fun characterTitles(esiResponse: ESIResponse): ReifyResult<List<CharacterTitle>> {
         return responseToEntityList(esiResponse)
     }
 
