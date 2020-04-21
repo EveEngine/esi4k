@@ -1,7 +1,6 @@
 .gradle/*
 .idea
 /build
-/gradle/wrapper/gradle-wrapper.jar
 
 /src/main/kotlin/net/legio/esi4k/app
 /src/test/resources/test.properties
