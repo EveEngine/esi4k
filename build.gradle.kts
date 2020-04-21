@@ -23,6 +23,10 @@ dependencies {
     testImplementation("org.junit.jupiter:junit-jupiter:5.6.2")
 }
 
+tasks.wrapper {
+    gradleVersion = "6.3"
+}
+
 tasks.test {
     useJUnitPlatform()
     testLogging {
