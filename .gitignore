@@ -2,5 +2,7 @@
 .idea
 /build
 
+**/out/**
+
 /src/main/kotlin/net/legio/esi4k/app
 /src/test/resources/test.properties

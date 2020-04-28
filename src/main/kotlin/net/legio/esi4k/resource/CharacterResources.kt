@@ -4,7 +4,7 @@ import net.legio.esi4k.*
 import net.legio.esi4k.model.*
 
 
-class CharacterResources(esiClient: ESIClient, version: Version, datasource: Datasource): ESIResources(esiClient, version, datasource) {
+class CharacterResources(esiClient: ESIClient, version: Version = Version.LATEST, datasource: Datasource = Datasource.TRANQUILITY): ESIResources(esiClient, version, datasource) {
 
     fun characterRaw(characterId: Int): ESIResponse {
         return callExecute("/characters/$characterId")

@@ -13,7 +13,7 @@ data class NoReify<T>(val message: String): ReifyResult<T>()
  * Base resources class with reification functions to deserialize the raw content.
  */
 abstract class ESIResources(var client: ESIClient, var version: Version, var datasource: Datasource) {
-    protected val mapper = jacksonObjectMapper()
+    val mapper = jacksonObjectMapper()
 
     protected fun callExecute(endpoint: String, httpMethod: HttpMethod = HttpMethod.GET, authorization: Boolean = false, body: String? = null): ESIResponse {
         return client.createESIRequest("/${version.value}/${endpoint}", httpMethod).apply {
@@ -32,7 +32,7 @@ abstract class ESIResources(var client: ESIClient, var version: Version, var dat
             addQueryParam("datasource", datasource.value)
             if (authorization) {
                 client.accessToken?.let {
-                    addHeader(ESIHeader.AUTHORIZATION, it)
+                    addHeader(ESIHeader.AUTHORIZATION, "Bearer $it")
                 }
             }
             this.body = body
@@ -58,7 +58,7 @@ abstract class ESIResources(var client: ESIClient, var version: Version, var dat
      */
     inline fun <reified T> reifyContentAsList(content: String): ReifyResult<List<T>> {
         return try {
-            GoodReify(jacksonObjectMapper().readValue(content, jacksonTypeRef<List<T>>()))
+            GoodReify(mapper.readValue(content, jacksonTypeRef<List<T>>()))
         }catch(e: Exception){
             FailedReify("${e.message}")
         }
