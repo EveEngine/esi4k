@@ -1,6 +1,8 @@
-package net.legio.esi4k.resource
+package net.legio.esi4k.resource.auth
 
 import net.legio.esi4k.AuthRequiredResources
+import net.legio.esi4k.resource.AssetResources
+import net.legio.esi4k.resource.GoodReify
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.TestInstance
@@ -16,13 +18,13 @@ class AssetsResourcesTests: AuthRequiredResources() {
 
     @Test
     fun `should get character assets raw`(){
-        val assets = assetResources.characterAssetsRaw(testProps.characterId)
+        val assets = assetResources.characterAssetsRaw(authTestProps.characterId)
         assert(assets.code == 200)
     }
 
     @Test
     fun `should get character assets typed`() {
-        val assets = assetResources.characterAssets(testProps.characterId)
+        val assets = assetResources.characterAssets(authTestProps.characterId)
         assert(assets is GoodReify)
         val data = (assets as GoodReify).data
         assert(!data.isNullOrEmpty())
@@ -30,19 +32,19 @@ class AssetsResourcesTests: AuthRequiredResources() {
 
     @Test
     fun `should get character assets locations raw`(){
-        val assets = assetResources.characterAssets(testProps.characterId)
+        val assets = assetResources.characterAssets(authTestProps.characterId)
         val assetsList = (assets as GoodReify).data
-        val itemIds = assetsList?.asSequence()?.map { asset -> asset.itemId }?.toList()
-        val response = assetResources.characterAssetsLocationsRaw(testProps.characterId, itemIds!!)
+        val itemIds = assetsList?.map { asset -> asset.itemId }
+        val response = assetResources.characterAssetsLocationsRaw(authTestProps.characterId, itemIds!!)
         assert(response.code == 200)
     }
 
     @Test
     fun `should get character assets locations typed`(){
-        val assets = assetResources.characterAssets(testProps.characterId)
+        val assets = assetResources.characterAssets(authTestProps.characterId)
         val assetsList = (assets as GoodReify).data
         val itemIds = assetsList?.asSequence()?.map { asset -> asset.itemId }?.toList()
-        val locations = assetResources.characterAssetsLocations(testProps.characterId, itemIds!!)
+        val locations = assetResources.characterAssetsLocations(authTestProps.characterId, itemIds!!)
         assert(locations is GoodReify)
         val data = (locations as GoodReify).data
         assert(!data.isNullOrEmpty())

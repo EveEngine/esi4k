@@ -1,5 +1,6 @@
 package net.legio.esi4k.resource
 
+import net.legio.esi4k.AuthRequiredResources
 import net.legio.esi4k.ESIClient
 import org.junit.jupiter.api.*
 import org.junit.jupiter.api.parallel.Execution
@@ -9,11 +10,9 @@ import org.junit.jupiter.params.ParameterizedTest
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @Execution(ExecutionMode.CONCURRENT)
 @DisplayName("alliance resources tests")
-class AllianceResourcesTests {
+class AllianceResourcesTests: AuthRequiredResources() {
 
-    private val esiClient = ESIClient()
     private val allianceResources = AllianceResources(esiClient)
-    private val allianceTestId = 99000006
 
     @Test
     fun `should get alliance ids raw`(){
@@ -31,26 +30,26 @@ class AllianceResourcesTests {
 
     @Test
     fun `should get alliance raw`(){
-        val alliance = allianceResources.allianceRaw(allianceTestId)
+        val alliance = allianceResources.allianceRaw(authTestProps.allianceId)
         assert(alliance.code == 200)
     }
 
     @Test
     fun `should get alliance typed`(){
-        val alliance = allianceResources.alliance(allianceTestId)
+        val alliance = allianceResources.alliance(authTestProps.allianceId)
         assert(alliance is GoodReify)
         assert((alliance as GoodReify).data != null)
     }
 
     @Test
     fun `should get alliance corporations ids raw`() {
-        val corporations = allianceResources.allianceCorporationIdsRaw(allianceTestId)
+        val corporations = allianceResources.allianceCorporationIdsRaw(authTestProps.allianceId)
         assert(corporations.code == 200)
     }
 
     @Test
     fun `should get alliance corporations ids typed`(){
-        val corporations = allianceResources.allianceCorporationIds(allianceTestId)
+        val corporations = allianceResources.allianceCorporationIds(authTestProps.allianceId)
         assert(corporations is GoodReify)
         val data = (corporations as GoodReify).data
         assert(data != null)
@@ -59,13 +58,13 @@ class AllianceResourcesTests {
 
     @Test
     fun `should get alliance icons raw`(){
-        val icons = allianceResources.allianceIconsRaw(allianceTestId)
+        val icons = allianceResources.allianceIconsRaw(authTestProps.allianceId)
         assert(icons.code == 200)
     }
 
     @Test
     fun `should get alliance icons typed`() {
-        val icons = allianceResources.allianceIcons(allianceTestId)
+        val icons = allianceResources.allianceIcons(authTestProps.allianceId)
         assert(icons is GoodReify)
         val data = (icons as GoodReify).data
         assert(data != null)
