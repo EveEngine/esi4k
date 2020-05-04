@@ -1,5 +1,6 @@
 package net.legio.esi4k.resource
 
+import com.fasterxml.jackson.annotation.JsonInclude
 import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
 import com.fasterxml.jackson.module.kotlin.jacksonTypeRef
 import net.legio.esi4k.*
@@ -13,7 +14,9 @@ data class NoReify<T>(val message: String): ReifyResult<T>()
  * Base resources class with reification functions to deserialize the raw content.
  */
 abstract class ESIResources(var client: ESIClient, var version: Version, var datasource: Datasource) {
-    val mapper = jacksonObjectMapper()
+    val mapper = jacksonObjectMapper().apply {
+        setSerializationInclusion(JsonInclude.Include.NON_NULL)
+    }
 
     protected fun callExecute(endpoint: String, httpMethod: HttpMethod = HttpMethod.GET, authorization: Boolean = false, body: String? = null): ESIResponse {
         return client.createESIRequest("/${version.value}/${endpoint}", httpMethod).apply {
