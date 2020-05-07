@@ -10,8 +10,11 @@ data class CharacterFleet (
         @JsonProperty("wing_id") val wingId: Long
 )
 
-enum class FleetRole {
-    FleetCommander, SquadCommander, SquadMember, WingCommander;
+enum class FleetRole(val value: String) {
+    FleetCommander("fleet_commander"),
+    SquadCommander("squad_commander"),
+    SquadMember("squad_member"),
+    WingCommander("wing_commander");
 
     companion object {
         @JsonCreator @JvmStatic fun fromRaw(raw: String): ContractType{
