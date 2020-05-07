@@ -1,5 +1,6 @@
 package net.legio.esi4k.model
 
+import com.fasterxml.jackson.annotation.JsonCreator
 import com.fasterxml.jackson.annotation.JsonProperty
 
 data class Position (
@@ -9,7 +10,15 @@ data class Position (
 )
 
 enum class LocationType {
-    Station, SolarSystem, Item, Other
+    Station, SolarSystem, Item, Other;
+
+    companion object {
+        @JsonCreator
+        @JvmStatic fun fromRaw(raw: String): ContractType{
+            val corrected = raw.replace("_", "").toLowerCase()
+            return ContractType.values().first{ t -> t.name.toLowerCase() == corrected }
+        }
+    }
 }
 
 enum class LocationFlag {

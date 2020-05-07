@@ -35,12 +35,13 @@ enum class LabelColor(val value: String) {
     LightYellow("#ffffcd"),
     White("#ffffff");
 
-    @JsonCreator
-    fun fromValue(value: String): LabelColor? {
-        val lowerValue = value.toLowerCase()
-        return values().firstOrNull() { l -> l.value.toLowerCase() == lowerValue }
-    }
-
     @JsonGetter
     fun serialize() = value
+
+    companion object {
+        @JsonCreator @JvmStatic fun fromRaw(raw: String): ContractType{
+            val corrected = raw.replace("_", "").toLowerCase()
+            return ContractType.values().first{ t -> t.name.toLowerCase() == corrected }
+        }
+    }
 }

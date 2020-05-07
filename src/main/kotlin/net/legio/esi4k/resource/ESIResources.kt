@@ -1,6 +1,7 @@
 package net.legio.esi4k.resource
 
 import com.fasterxml.jackson.annotation.JsonInclude
+import com.fasterxml.jackson.databind.type.TypeFactory
 import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
 import com.fasterxml.jackson.module.kotlin.jacksonTypeRef
 import net.legio.esi4k.*
@@ -61,7 +62,7 @@ abstract class ESIResources(var client: ESIClient, var version: Version, var dat
      */
     inline fun <reified T> reifyContentAsList(content: String): ReifyResult<List<T>> {
         return try {
-            GoodReify(mapper.readValue(content, jacksonTypeRef<List<T>>()))
+            GoodReify(mapper.readValue(content, TypeFactory.defaultInstance().constructCollectionType(List::class.java, T::class.java)))
         }catch(e: Exception){
             FailedReify("${e.message}")
         }

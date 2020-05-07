@@ -1,5 +1,6 @@
 package net.legio.esi4k.model
 
+import com.fasterxml.jackson.annotation.JsonCreator
 import com.fasterxml.jackson.annotation.JsonProperty
 
 class Contract(
@@ -38,5 +39,12 @@ enum class ContractStatus {
 }
 
 enum class ContractType {
-    Unknown, ItemExchange, Auction, Courier, Loan
+    Unknown, ItemExchange, Auction, Courier, Loan;
+
+    companion object {
+        @JsonCreator @JvmStatic fun fromRaw(raw: String): ContractType{
+            val corrected = raw.replace("_", "").toLowerCase()
+            return values().first{ t -> t.name.toLowerCase() == corrected }
+        }
+    }
 }

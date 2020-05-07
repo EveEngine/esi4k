@@ -1,5 +1,6 @@
 package net.legio.esi4k.model
 
+import com.fasterxml.jackson.annotation.JsonCreator
 import com.fasterxml.jackson.annotation.JsonProperty
 
 data class CorporationStructure (
@@ -27,7 +28,13 @@ data class Service (
 )
 
 enum class StructureState {
-    AnchorVulnerable, Anchoring, ArmorReinforce, ArmorVulnerable, DeployVulnerable, FittingInvulnerable, HullReinforce, HullVulnerable, OnlineDeprecated, OnliningVulnerable, ShieldVulnerable, Unanchored, Unknown
+    AnchorVulnerable, Anchoring, ArmorReinforce, ArmorVulnerable, DeployVulnerable, FittingInvulnerable, HullReinforce, HullVulnerable, OnlineDeprecated, OnliningVulnerable, ShieldVulnerable, Unanchored, Unknown;
+    companion object {
+        @JsonCreator @JvmStatic fun fromRaw(raw: String): ContractType{
+            val corrected = raw.replace("_", "").toLowerCase()
+            return ContractType.values().first{ t -> t.name.toLowerCase() == corrected }
+        }
+    }
 }
 
 enum class ServiceState {

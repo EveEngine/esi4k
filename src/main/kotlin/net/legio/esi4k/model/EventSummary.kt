@@ -1,5 +1,6 @@
 package net.legio.esi4k.model
 
+import com.fasterxml.jackson.annotation.JsonCreator
 import com.fasterxml.jackson.annotation.JsonProperty
 
 data class EventSummary(
@@ -11,5 +12,12 @@ data class EventSummary(
 )
 
 enum class EventResponse {
-    Declined, NotResponded, Accepted, Tentative
+    Declined, NotResponded, Accepted, Tentative;
+
+    companion object {
+        @JsonCreator @JvmStatic fun fromRaw(raw: String): ContractType{
+            val corrected = raw.replace("_", "").toLowerCase()
+            return ContractType.values().first{ t -> t.name.toLowerCase() == corrected }
+        }
+    }
 }
