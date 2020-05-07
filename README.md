@@ -1,7 +1,15 @@
 # esi4k
+
 Kotlin client implementation of the Eve Online ESI API. This is still in early stages of development.
 
+---
+
+[![Build Status](https://travis-ci.com/EveEngine/esi4k.svg?branch=master)](https://travis-ci.com/EveEngine/esi4k)
+
+---
+
 ## Status of resource APIS
+
 - [x] Completed with Tests
 - [x] **Still needs tests**
 - [ ] Not yet started
@@ -19,14 +27,14 @@ Kotlin client implementation of the Eve Online ESI API. This is still in early s
 - [x] **Dogma**
 - [x] **Faction Warfare**
 - [x] **Fittings**
-- [ ] Fleets
+- [x] **Fleets**
 - [x] **Incursions**
-- [ ] Industry
-- [ ] Insurance
-- [ ] Killmails
-- [ ] Location
-- [ ] Loyalty
-- [ ] Mail
+- [x] **Industry**
+- [x] **Insurance**
+- [x] **Killmails**
+- [x] **Location**
+- [x] **Loyalty**
+- [x] **Mail**
 - [ ] Market
 - [ ] Opportunities
 - [ ] Planetary Interaction
