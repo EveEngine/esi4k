@@ -10,9 +10,6 @@ class ESIClient {
     var clientId: String? = null
     var applyUserAgentPerRequest: Boolean = false
 
-    init {
-    }
-
     fun ping(): Boolean{
         return when(createESIRequest(PING_EP).execute()){
             is ESISuccessResponse -> true
