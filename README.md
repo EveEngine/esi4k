@@ -10,8 +10,8 @@ Kotlin client implementation of the Eve Online ESI API. This is still in early s
 
 ## Status of resource APIS
 
-- [x] Completed with Tests
-- [x] **Still needs tests**
+- [x] Completed
+- [x] **Still needs testing**
 - [ ] Not yet started
 
 ----------------------------------
@@ -35,15 +35,15 @@ Kotlin client implementation of the Eve Online ESI API. This is still in early s
 - [x] **Location**
 - [x] **Loyalty**
 - [x] **Mail**
-- [ ] Market
-- [ ] Opportunities
-- [ ] Planetary Interaction
-- [ ] Routes
-- [ ] Search
-- [ ] Skills
-- [ ] Sovereignty
-- [ ] Status
-- [ ] Universe
-- [ ] User Interface
-- [ ] Wallet
-- [ ] Wars
+- [x] **Market**
+- [x] **Opportunities**
+- [x] **Planetary Interaction**
+- [x] **Routes**
+- [x] **Search**
+- [x] **Skills**
+- [x] **Sovereignty**
+- [x] **Status**
+- [x] **Universe**
+- [x] **User Interface**
+- [x] **Wallet**
+- [x] **Wars**
