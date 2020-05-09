@@ -5,15 +5,15 @@ import java.time.Instant
 
 data class WarDetails (
         @JsonProperty("aggressor") val aggressor: WarParticipant,
-        @JsonProperty("allies") val allies: List<Ally>,
+        @JsonProperty("allies") val allies: List<Ally>? = null,
         @JsonProperty("declared") val declared: String,
         @JsonProperty("defender") val defender: WarParticipant,
-        @JsonProperty("finished") val finished: Instant? = null,
+        @JsonProperty("finished") val finished: String? = null,
         @JsonProperty("id") val warId: Int,
         @JsonProperty("mutual") val mutual: Boolean,
         @JsonProperty("open_for_allies") val openForAllies: Boolean,
-        @JsonProperty("retracted") val retracted: Instant? = null,
-        @JsonProperty("started") val started: Instant? = null
+        @JsonProperty("retracted") val retracted: String? = null,
+        @JsonProperty("started") val started: String? = null
 )
 
 data class WarParticipant (
