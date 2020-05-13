@@ -7,15 +7,16 @@ import com.fasterxml.jackson.module.kotlin.readValue
 import java.time.Instant
 
 sealed class TokenVerify{
-    enum class Error {
-        VERIFY_ERROR,
-        AUTHORIZATION_NOT_PROVIDED,
-        UNSUPPORTED_DATASOURCE,
-        OTHER
+    /** The error indicated by the response code from the response. */
+    enum class Error(val code: Int) {
+        VERIFY_ERROR(400),
+        AUTHORIZATION_NOT_PROVIDED(401),
+        UNSUPPORTED_DATASOURCE(404),
+        OTHER(0)
     }
     companion object {
         /**
-         * Attempts to validate the access token of the client. If the access  token is
+         * Calls the ESI server to verify and validate the access token of the client.
          */
         @JvmStatic
         internal fun verify(esiResponse: ESIResponse): TokenVerify?{
@@ -43,20 +44,37 @@ sealed class TokenVerify{
     }
 }
 
+/**
+ * Indicates the access token was successfully verified by the ESI server.
+ */
 data class TokenVerified(
-    @JsonProperty("CharacterId") val characterId: Int,
-    @JsonProperty("CharacterName") val characterName: String? = null,
-    @JsonProperty("CharacterOwnerHash") val characterOwnerHash: String? = null,
-    @JsonProperty("ExpiresOn") val expiresOn: Instant? = null,
-    @JsonProperty("IntellectualProperty") val intellectualProperty: String? = null,
-    @JsonProperty("Scopes") val scopes: String? = null,
-    @JsonProperty("TokenType") val tokenType: String? = null
+        /** Token owner's character ID */
+        @JsonProperty("CharacterId") val characterId: Int,
+        /** Token owner's character name */
+        @JsonProperty("CharacterName") val characterName: String? = null,
+        /** Hash of the character's owner. If the character is sold or otherwise transferred, this will change */
+        @JsonProperty("CharacterOwnerHash") val characterOwnerHash: String? = null,
+        /** Expiry time of the token (not RFC3339) */
+        @JsonProperty("ExpiresOn") val expiresOn: Instant? = null,
+        /** The IP which generated the token */
+        @JsonProperty("IntellectualProperty") val intellectualProperty: String? = null,
+        /** Space separated list of scopes the token is valid for */
+        @JsonProperty("Scopes") val scopes: String? = null,
+        /** Type of access token */
+        @JsonProperty("TokenType") val tokenType: String? = null
 ) : TokenVerify() {
+    /** The parsed array of scopes (see [scopes])*/
     val scopesArray: Array<String> = scopes?.split(" ")?.toTypedArray()?:arrayOf()
 }
 
+/**
+ * Indicates that the token was not able to verify correctly.
+ */
 class TokenInvalid internal constructor(
-    val error: Error,
-    var errorMessage: String? = null,
-    var detailedMessage: String? = null
+        /** The [Error] type received from the ESI server. */
+        val error: Error,
+        /** The message received from the server. */
+        var errorMessage: String? = null,
+        /** The description of the error if provided by the response. */
+        var detailedMessage: String? = null
 ): TokenVerify()

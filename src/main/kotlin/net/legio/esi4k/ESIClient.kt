@@ -1,25 +1,43 @@
 package net.legio.esi4k
 
+import com.fasterxml.jackson.databind.type.TypeFactory
+import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
+import com.fasterxml.jackson.module.kotlin.readValue
+import net.legio.esi4k.model.ESIStatus
+import net.legio.esi4k.model.RouteStatus
+import net.legio.esi4k.resource.FailedReify
+import net.legio.esi4k.resource.GoodReify
+import net.legio.esi4k.resource.ReifyResult
 import org.apache.http.client.methods.*
 import org.apache.http.client.utils.URIBuilder
 import org.apache.http.entity.StringEntity
 import org.apache.http.impl.client.HttpClientBuilder
 
 class ESIClient {
+    /**
+     * The access token used for resources requiring permissions.
+     */
     var accessToken: String? = null
     var clientId: String? = null
+
+    /**
+     * Sets the User-Agent header with the set client ID. If the client ID is not set, then this is ignored all together.
+     */
     var applyUserAgentPerRequest: Boolean = false
 
+    /**
+     * Attempts to ping the ESI server's ping meta endpoint.
+     */
     fun ping(): Boolean{
-        return when(createESIRequest(PING_EP).execute()){
+        return when(createESIRequest("/ping").execute()){
             is ESISuccessResponse -> true
             is ESIFailResponse -> false
         }
     }
 
     /**
-     * Calls on the /verify endpoint to verify and validate the access token.
-     * @return
+     * Calls on the /verify meta endpoint to verify and validate the access token. Any fail response will result in
+     * a [TokenInvalid]. Otherwise, success will yield [TokenVerified].
      */
     fun verifyAuthentication(): TokenVerify?{
         if(accessToken.isNullOrBlank()) return null
@@ -39,6 +57,7 @@ class ESIClient {
         return ESIResponse.createFrom(client.execute(request))
     }
 
+    /** Generates an [ESIRequest] with the given parameters */
     fun createESIRequest(endpoint: String? = null, method: HttpMethod = HttpMethod.GET): ESIRequest{
         return ESIRequest(this).apply {
             this.endpoint = endpoint
@@ -74,9 +93,26 @@ class ESIClient {
         return builder.build().toString()
     }
 
+    /**
+     * Retrieves the health and status of latest version of ESI routes.
+     *
+     * @param onlyBad if true, will only return the statuses that are [RouteStatus.Red]
+     */
+    fun esiStatus(onlyBad: Boolean = false): ReifyResult<List<ESIStatus>> {
+        val response = execute(createESIRequest("/status.json"))
+        return if(response is ESISuccessResponse){
+            val statuses: List<ESIStatus>? = jacksonObjectMapper().readValue(response.content, TypeFactory.defaultInstance().constructCollectionType(List::class.java, ESIStatus::class.java))
+            if(onlyBad){
+                return GoodReify(statuses?.filter { s -> s.status == RouteStatus.Red })
+            }
+            GoodReify(statuses)
+        }else {
+            FailedReify((response as ESIFailResponse).errorMessage)
+        }
+    }
+
     companion object {
         const val ESI_HOST = "https://esi.evetech.net"
-        const val PING_EP = "ping"
     }
 
 }
