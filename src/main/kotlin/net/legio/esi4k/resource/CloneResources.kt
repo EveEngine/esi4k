@@ -6,7 +6,7 @@ import net.legio.esi4k.ESIResponse
 import net.legio.esi4k.Version
 import net.legio.esi4k.model.CloneInformation
 
-class CloneResources(esiClient: ESIClient, version: Version, datasource: Datasource): ESIResources(esiClient, version, datasource) {
+class CloneResources(esiClient: ESIClient,  datasource: Datasource): ESIResources(esiClient,  datasource) {
 
     fun characterClonesRaw(characterId: Int): ESIResponse {
         return callExecute("/characters/$characterId/clones", authorization = true)

@@ -8,7 +8,7 @@ import net.legio.esi4k.model.KillmailIdHash
 import net.legio.esi4k.model.WarDetails
 import kotlin.math.max
 
-class WarsResources (client: ESIClient, version: Version = Version.LATEST, datasource: Datasource = Datasource.TRANQUILITY): ESIResources(client, version, datasource) {
+class WarsResources (client: ESIClient,  datasource: Datasource = Datasource.TRANQUILITY): ESIResources(client,  datasource) {
 
     fun warsRaw(maxWarId: Int? = null): ESIResponse {
         return with(createRequest("/wars")){

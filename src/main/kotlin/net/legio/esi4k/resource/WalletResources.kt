@@ -6,7 +6,7 @@ import net.legio.esi4k.model.CharacterWalletTransaction
 import net.legio.esi4k.model.CorporationWallet
 import net.legio.esi4k.model.CorporationWalletTransaction
 
-class WalletResources(client: ESIClient, version: Version = Version.LATEST, datasource: Datasource = Datasource.TRANQUILITY): ESIResources(client, version, datasource) {
+class WalletResources(client: ESIClient,  datasource: Datasource = Datasource.TRANQUILITY): ESIResources(client,  datasource) {
 
     fun characterWalletRaw(characterId: Int): ESIResponse {
         return callExecute("/characters/$characterId/waller", authorization = true)

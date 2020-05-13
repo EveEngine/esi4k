@@ -6,7 +6,7 @@ import net.legio.esi4k.ESIResponse
 import net.legio.esi4k.Version
 import net.legio.esi4k.model.*
 
-class IndustryResources(esiClient: ESIClient, version: Version, datasource: Datasource): ESIResources(esiClient, version, datasource) {
+class IndustryResources(esiClient: ESIClient,  datasource: Datasource): ESIResources(esiClient,  datasource) {
 
     fun characterIndustryJobsRaw(characterId: Int, includeCompleted: Boolean = true): ESIResponse {
         return with(createRequest("/characters/$characterId/industry/jobs", authorization = true)) {

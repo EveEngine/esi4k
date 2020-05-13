@@ -4,7 +4,7 @@ import net.legio.esi4k.*
 import net.legio.esi4k.model.Contact
 import net.legio.esi4k.model.ContactLabel
 
-class ContactsResources(esiClient: ESIClient, version: Version, datasource: Datasource): ESIResources(esiClient, version, datasource) {
+class ContactsResources(esiClient: ESIClient,  datasource: Datasource): ESIResources(esiClient,  datasource) {
 
     fun allianceContactsRaw(allianceId: Int): ESIResponse {
         return callExecute("/alliances/$allianceId/contacts", authorization = true)
@@ -71,6 +71,7 @@ class ContactsResources(esiClient: ESIClient, version: Version, datasource: Data
             labelIds.isNotEmpty().isTrue {
                 addQueryParam("label_ids", labelIds.joinToString(","))
             }
+            body = mapper.writeValueAsString(contactIds)
             execute()
         }
     }

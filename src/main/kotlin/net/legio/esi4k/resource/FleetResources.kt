@@ -7,7 +7,7 @@ import net.legio.esi4k.model.internal.FleetMovement
 import net.legio.esi4k.model.internal.NewFleetSettings
 import org.apache.http.client.methods.HttpPost
 
-class FleetResources(client: ESIClient, version: Version = Version.LATEST, datasource: Datasource = Datasource.TRANQUILITY): ESIResources(client, version, datasource) {
+class FleetResources(client: ESIClient,  datasource: Datasource = Datasource.TRANQUILITY): ESIResources(client,  datasource) {
 
     fun characterFleetRaw(characterId: Int): ESIResponse {
         return callExecute("/characters/$characterId/fleet", authorization = true)
@@ -59,7 +59,7 @@ class FleetResources(client: ESIClient, version: Version = Version.LATEST, datas
     fun createFleetInvitation(fleetId: Long, characterId: Int, role: FleetRole, squadId: Long? = null, wingId: Long? = null): ESIResponse{
         return with(createRequest("/fleets/$fleetId/members", HttpMethod.POST, true)){
             body = mapper.writeValueAsString(FleetInvitation(characterId, role.value, squadId, wingId))
-            return execute()
+            execute()
         }
     }
 

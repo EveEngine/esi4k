@@ -5,7 +5,7 @@ import net.legio.esi4k.model.Asset
 import net.legio.esi4k.model.AssetLocation
 import net.legio.esi4k.model.AssetName
 
-class AssetResources(client: ESIClient, version: Version = Version.LATEST, datasource: Datasource = Datasource.TRANQUILITY): ESIResources(client, version, datasource) {
+class AssetResources(client: ESIClient,  datasource: Datasource = Datasource.TRANQUILITY): ESIResources(client,  datasource) {
 
     fun characterAssetsRaw(characterId: Int, page: Int = 1): ESIResponse {
         return with(createRequest("/characters/$characterId/assets", authorization = true)){

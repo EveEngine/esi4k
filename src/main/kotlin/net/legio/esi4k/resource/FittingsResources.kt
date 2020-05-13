@@ -5,7 +5,7 @@ import net.legio.esi4k.*
 import net.legio.esi4k.model.Fitting
 import net.legio.esi4k.model.FittingId
 
-class FittingsResources(esiClient: ESIClient, version: Version, datasource: Datasource): ESIResources(esiClient, version, datasource) {
+class FittingsResources(esiClient: ESIClient,  datasource: Datasource): ESIResources(esiClient,  datasource) {
 
     fun characterFittingsRaw(characterId: Int): ESIResponse {
         return callExecute("/characters/$characterId/fittings", authorization = true)

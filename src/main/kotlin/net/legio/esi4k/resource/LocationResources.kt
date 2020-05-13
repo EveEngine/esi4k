@@ -8,7 +8,7 @@ import net.legio.esi4k.model.CharacterOnline
 import net.legio.esi4k.model.CharacterShip
 import net.legio.esi4k.model.Location
 
-class LocationResources (client: ESIClient, version: Version = Version.LATEST, datasource: Datasource = Datasource.TRANQUILITY): ESIResources(client, version, datasource) {
+class LocationResources (client: ESIClient,  datasource: Datasource = Datasource.TRANQUILITY): ESIResources(client,  datasource) {
 
     fun characterLocationRaw(characterId: Int): ESIResponse{
         return callExecute("/characters/$characterId/location", authorization = true)

@@ -14,13 +14,13 @@ data class NoReify<T>(val message: String): ReifyResult<T>()
 /**
  * Base resources class with reification functions to deserialize the raw content.
  */
-abstract class ESIResources(var client: ESIClient, var version: Version, var datasource: Datasource) {
+abstract class ESIResources(var client: ESIClient, var datasource: Datasource) {
     val mapper = jacksonObjectMapper().apply {
         setSerializationInclusion(JsonInclude.Include.NON_NULL)
     }
 
     protected fun callExecute(endpoint: String, httpMethod: HttpMethod = HttpMethod.GET, authorization: Boolean = false, body: String? = null): ESIResponse {
-        return client.createESIRequest("/${version.value}/${endpoint}", httpMethod).apply {
+        return client.createESIRequest("/${Version.LATEST.value}/${endpoint}", httpMethod).apply {
             addQueryParam("datasource", datasource.value)
             if(authorization){
                 client.accessToken?.let {
@@ -32,7 +32,7 @@ abstract class ESIResources(var client: ESIClient, var version: Version, var dat
     }
 
     protected fun createRequest(endpoint: String, httpMethod: HttpMethod = HttpMethod.GET, authorization: Boolean = false, body: String? = null): ESIRequest {
-        return client.createESIRequest("/${version.value}/${endpoint}", httpMethod).apply {
+        return client.createESIRequest("/${Version.LATEST.value}/${endpoint}", httpMethod).apply {
             addQueryParam("datasource", datasource.value)
             if (authorization) {
                 client.accessToken?.let {

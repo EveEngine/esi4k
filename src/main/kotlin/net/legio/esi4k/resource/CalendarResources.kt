@@ -7,7 +7,7 @@ import net.legio.esi4k.model.Event
 import net.legio.esi4k.model.EventResponse
 import net.legio.esi4k.model.EventSummary
 
-class CalendarResources(esiClient: ESIClient, version: Version, datasource: Datasource): ESIResources(esiClient, version, datasource) {
+class CalendarResources(esiClient: ESIClient,  datasource: Datasource): ESIResources(esiClient,  datasource) {
 
     fun eventSummariesRaw(characterId: Int, fromEvent: Int = 0): ESIResponse {
         return with(createRequest("/characters/$characterId/calendar", authorization = true)){

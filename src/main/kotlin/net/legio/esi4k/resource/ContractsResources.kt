@@ -6,7 +6,7 @@ import net.legio.esi4k.ESIResponse
 import net.legio.esi4k.Version
 import net.legio.esi4k.model.*
 
-class ContractsResources(esiClient: ESIClient, version: Version, datasource:Datasource): ESIResources(esiClient, version, datasource) {
+class ContractsResources(esiClient: ESIClient,  datasource:Datasource): ESIResources(esiClient,  datasource) {
 
     fun characterContractsRaw(characterId: Int, page: Int = 1): ESIResponse {
         return with(createRequest("/characters/$characterId/contracts", authorization = true)){

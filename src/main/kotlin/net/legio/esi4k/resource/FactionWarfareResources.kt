@@ -6,7 +6,7 @@ import net.legio.esi4k.ESIResponse
 import net.legio.esi4k.Version
 import net.legio.esi4k.model.*
 
-class FactionWarfareResources(esiClient: ESIClient, version: Version, datasource: Datasource): ESIResources(esiClient, version, datasource) {
+class FactionWarfareResources(esiClient: ESIClient,  datasource: Datasource): ESIResources(esiClient,  datasource) {
 
     fun characterFactionWarfareStatsRaw(characterId: Int) : ESIResponse {
         return callExecute("/characters/$characterId/fw/stats", authorization = true)

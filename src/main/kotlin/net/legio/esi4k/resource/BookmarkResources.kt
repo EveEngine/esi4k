@@ -8,7 +8,7 @@ import net.legio.esi4k.model.Bookmark
 import net.legio.esi4k.model.BookmarkFolder
 import java.awt.print.Book
 
-class BookmarkResources(esiClient: ESIClient, version: Version, datasource: Datasource): ESIResources(esiClient,version,datasource) {
+class BookmarkResources(esiClient: ESIClient,  datasource: Datasource): ESIResources(esiClient,datasource) {
 
     fun characterBookmarksRaw(characterId: Int): ESIResponse {
         return callExecute("/characters/$characterId/bookmarks")

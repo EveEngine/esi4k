@@ -8,7 +8,7 @@ import net.legio.esi4k.model.DogmaAttribute
 import net.legio.esi4k.model.DogmaDynamicItem
 import net.legio.esi4k.model.DogmaEffect
 
-class DogmaResources(esiClient: ESIClient, version: Version, datasource: Datasource): ESIResources(esiClient, version, datasource) {
+class DogmaResources(esiClient: ESIClient,  datasource: Datasource): ESIResources(esiClient,  datasource) {
 
     fun dogmaAttributesIdsRaw(): ESIResponse {
         return callExecute("/dogma/attributes")

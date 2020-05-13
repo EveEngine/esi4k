@@ -4,7 +4,7 @@ import net.legio.esi4k.*
 import net.legio.esi4k.model.Alliance
 import net.legio.esi4k.model.Icons
 
-class AllianceResources(client: ESIClient, version: Version = Version.LATEST, datasource: Datasource = Datasource.TRANQUILITY): ESIResources(client, version, datasource) {
+class AllianceResources(client: ESIClient, datasource: Datasource = Datasource.TRANQUILITY): ESIResources(client,  datasource) {
 
     fun alliancesIdsRaw(): ESIResponse{
         return callExecute("/alliances")

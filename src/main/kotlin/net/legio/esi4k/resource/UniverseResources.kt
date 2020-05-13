@@ -3,7 +3,7 @@ package net.legio.esi4k.resource
 import net.legio.esi4k.*
 import net.legio.esi4k.model.*
 
-class UniverseResources (client: ESIClient, version: Version = Version.LATEST, datasource: Datasource = Datasource.TRANQUILITY): ESIResources(client, version, datasource) {
+class UniverseResources (client: ESIClient,  datasource: Datasource = Datasource.TRANQUILITY): ESIResources(client,  datasource) {
 
     fun ancestriesRaw(acceptLanguages: AcceptLanguages = AcceptLanguages.EN_US): ESIResponse {
         return with(createRequest("/universe/ancestries")) {
@@ -47,7 +47,7 @@ class UniverseResources (client: ESIClient, version: Version = Version.LATEST, d
         return responseToEntityList(esiResponse)
     }
 
-    fun categoriesRaw(): ESIResponse {1
+    fun categoriesRaw(): ESIResponse {
         return callExecute("/universe/categories")
     }
 
@@ -240,7 +240,7 @@ class UniverseResources (client: ESIClient, version: Version = Version.LATEST, d
         return responseToEntity(esiResponse)
     }
 
-    fun regionsRaw(): ESIResponse {1
+    fun regionsRaw(): ESIResponse {
         return callExecute("/universe/regions")
     }
 
@@ -303,7 +303,7 @@ class UniverseResources (client: ESIClient, version: Version = Version.LATEST, d
         return responseToEntity(esiResponse)
     }
 
-    fun structuresRaw(): ESIResponse {1
+    fun structuresRaw(): ESIResponse {
         return callExecute("/universe/structures")
     }
 
@@ -351,7 +351,7 @@ class UniverseResources (client: ESIClient, version: Version = Version.LATEST, d
         return responseToEntityList(esiResponse)
     }
 
-    fun systemsRaw(): ESIResponse {1
+    fun systemsRaw(): ESIResponse {
         return callExecute("/universe/systems")
     }
 

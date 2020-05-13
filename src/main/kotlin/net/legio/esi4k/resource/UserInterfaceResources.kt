@@ -3,7 +3,7 @@ package net.legio.esi4k.resource
 import net.legio.esi4k.*
 import net.legio.esi4k.model.MailDetails
 
-class UserInterfaceResources(client: ESIClient, version: Version = Version.LATEST, datasource: Datasource = Datasource.TRANQUILITY): ESIResources(client, version, datasource) {
+class UserInterfaceResources(client: ESIClient,  datasource: Datasource = Datasource.TRANQUILITY): ESIResources(client,  datasource) {
 
     fun setAutopilotWaypoint(destinationId: Int, clearOtherWaypoints: Boolean, addToBeginning: Boolean): ESIResponse {
         return with(createRequest("/ui/auotpilot/waypoint",HttpMethod.POST, true)) {

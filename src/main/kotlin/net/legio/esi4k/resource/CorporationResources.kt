@@ -3,7 +3,7 @@ package net.legio.esi4k.resource
 import net.legio.esi4k.*
 import net.legio.esi4k.model.*
 
-class CorporationResources(esiClient: ESIClient, version: Version, datasource: Datasource): ESIResources(esiClient, version, datasource) {
+class CorporationResources(esiClient: ESIClient,  datasource: Datasource): ESIResources(esiClient,  datasource) {
 
     fun corporationRaw(corporationId: Int): ESIResponse {
         return callExecute("/corporations/$corporationId")

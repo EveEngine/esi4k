@@ -9,7 +9,7 @@ import net.legio.esi4k.model.ColonyLayout
 import net.legio.esi4k.model.CustomsOffice
 import net.legio.esi4k.model.Schematic
 
-class PlanetaryInteractionResources (client: ESIClient, version: Version = Version.LATEST, datasource: Datasource = Datasource.TRANQUILITY): ESIResources(client, version, datasource) {
+class PlanetaryInteractionResources (client: ESIClient,  datasource: Datasource = Datasource.TRANQUILITY): ESIResources(client,  datasource) {
 
     fun characterPlanetColoniesRaw(characterId: Int): ESIResponse {
         return callExecute("/characters/$characterId/planets", authorization = true)

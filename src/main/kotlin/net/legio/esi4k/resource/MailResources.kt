@@ -4,7 +4,7 @@ import net.legio.esi4k.*
 import net.legio.esi4k.model.*
 import net.legio.esi4k.model.internal.NewMailLabel
 
-class MailResources (client: ESIClient, version: Version = Version.LATEST, datasource: Datasource = Datasource.TRANQUILITY): ESIResources(client, version, datasource) {
+class MailResources (client: ESIClient,  datasource: Datasource = Datasource.TRANQUILITY): ESIResources(client,  datasource) {
 
     fun characterMailHeadersRaw(characterId: Int, labels: List<Int>? = null, lastMailId: Int? = null): ESIResponse {
         return with(createRequest("/characters/$characterId/mail", authorization = true)) {

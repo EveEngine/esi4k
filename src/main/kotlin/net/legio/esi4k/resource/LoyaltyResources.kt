@@ -7,7 +7,7 @@ import net.legio.esi4k.Version
 import net.legio.esi4k.model.LoyaltyPoints
 import net.legio.esi4k.model.LoyaltyStoreOffer
 
-class LoyaltyResources (client: ESIClient, version: Version = Version.LATEST, datasource: Datasource = Datasource.TRANQUILITY): ESIResources(client, version, datasource) {
+class LoyaltyResources (client: ESIClient,  datasource: Datasource = Datasource.TRANQUILITY): ESIResources(client,  datasource) {
 
     fun characterLoyaltyPointsRaw(characterId: Int): ESIResponse {
         return callExecute("/characters/$characterId/loyalty/points", authorization = true)

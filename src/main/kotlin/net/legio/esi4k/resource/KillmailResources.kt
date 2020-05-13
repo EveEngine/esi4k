@@ -7,7 +7,7 @@ import net.legio.esi4k.Version
 import net.legio.esi4k.model.Killmail
 import net.legio.esi4k.model.KillmailIdHash
 
-class KillmailResources (client: ESIClient, version: Version = Version.LATEST, datasource: Datasource = Datasource.TRANQUILITY): ESIResources(client, version, datasource) {
+class KillmailResources (client: ESIClient,  datasource: Datasource = Datasource.TRANQUILITY): ESIResources(client,  datasource) {
 
     fun characterRecentKillmailsRaw(characterId: Int, page: Int = 1): ESIResponse {
         return with(createRequest("/characters/$characterId/killmails/recent", authorization = true)) {

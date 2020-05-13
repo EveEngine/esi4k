@@ -5,7 +5,7 @@ import net.legio.esi4k.ESIClient
 import net.legio.esi4k.ESIResponse
 import net.legio.esi4k.Version
 
-class RouteResources(client: ESIClient, version: Version = Version.LATEST, datasource: Datasource = Datasource.TRANQUILITY): ESIResources(client, version, datasource) {
+class RouteResources(client: ESIClient,  datasource: Datasource = Datasource.TRANQUILITY): ESIResources(client,  datasource) {
 
     fun routeRaw(origin: Int, destination: Int, avoid: List<Int>? = null, connections: List<Int>? = null, flag: RouteFlag? = null): ESIResponse {
         return with(createRequest("/route/$origin/$destination")){

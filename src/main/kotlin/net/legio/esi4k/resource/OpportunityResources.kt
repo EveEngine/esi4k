@@ -5,7 +5,7 @@ import net.legio.esi4k.model.OpportunityGroup
 import net.legio.esi4k.model.OpportunityTask
 import net.legio.esi4k.model.OpportunityTaskId
 
-class OpportunityResources(client: ESIClient, version: Version = Version.LATEST, datasource: Datasource = Datasource.TRANQUILITY): ESIResources(client, version, datasource) {
+class OpportunityResources(client: ESIClient,  datasource: Datasource = Datasource.TRANQUILITY): ESIResources(client,  datasource) {
 
     fun characterOpportunitiesRaw(characterId: Int): ESIResponse {
         return callExecute("/characters/$characterId/opportunities", authorization = true)

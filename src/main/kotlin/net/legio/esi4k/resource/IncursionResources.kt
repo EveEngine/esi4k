@@ -6,7 +6,7 @@ import net.legio.esi4k.ESIResponse
 import net.legio.esi4k.Version
 import net.legio.esi4k.model.Incursion
 
-class IncursionResources(esiClient: ESIClient, version: Version, datasource: Datasource): ESIResources(esiClient, version, datasource) {
+class IncursionResources(esiClient: ESIClient,  datasource: Datasource): ESIResources(esiClient,  datasource) {
 
     fun incursionsRaw(): ESIResponse {
         return callExecute("/incursions")

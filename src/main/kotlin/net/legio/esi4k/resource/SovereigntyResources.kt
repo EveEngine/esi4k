@@ -8,7 +8,7 @@ import net.legio.esi4k.model.SovereigntyCampaign
 import net.legio.esi4k.model.SovereigntyInformation
 import net.legio.esi4k.model.SovereigntyStructure
 
-class SovereigntyResources (client: ESIClient, version: Version = Version.LATEST, datasource: Datasource = Datasource.TRANQUILITY): ESIResources(client, version, datasource) {
+class SovereigntyResources (client: ESIClient,  datasource: Datasource = Datasource.TRANQUILITY): ESIResources(client,  datasource) {
 
     fun sovereigntyCampaignsRaw(): ESIResponse {
         return callExecute("/sovereignty/campaigns")
