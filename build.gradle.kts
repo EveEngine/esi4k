@@ -1,8 +1,8 @@
 plugins {
-    kotlin("jvm") version "1.3.71"
+    kotlin("jvm") version "1.3.72"
 }
 
-group = "net.legio"
+group = "com.eve-engine"
 version = "0.1.0"
 
 repositories {

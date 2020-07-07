@@ -1,6 +1,6 @@
 package net.legio.esi4k;
 
-import org.junit.jupiter.api.BeforeAll
+import com.eve_engine.esi4k.ESIClient
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance
 
