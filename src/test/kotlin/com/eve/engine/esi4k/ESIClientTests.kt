@@ -1,6 +1,6 @@
-package net.legio.esi4k;
+package com.eve.engine.esi4k;
 
-import com.eve_engine.esi4k.ESIClient
+import com.eve.engine.esi4k.ESIClient
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance
 
