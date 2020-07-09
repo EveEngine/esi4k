@@ -1,6 +1,5 @@
 package com.eve.engine.esi4k;
 
-import com.eve.engine.esi4k.ESIClient
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance
 

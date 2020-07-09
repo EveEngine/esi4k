@@ -9,7 +9,7 @@ plugins {
 }
 
 group = "com.eve-engine"
-version = "0.1.0-SNAPSHOT"
+version = "0.1.0"
 
 repositories {
     mavenCentral()
@@ -45,7 +45,7 @@ val dokkaJar by tasks.creating(Jar::class) {
 
 val sourcesJar by tasks.creating(Jar::class) {
     description = "Assembles Kotlin sources Jar"
-    archiveClassifier.set("source")
+    archiveClassifier.set("sources")
     from(sourceSets.main.get().allSource)
 }
 
