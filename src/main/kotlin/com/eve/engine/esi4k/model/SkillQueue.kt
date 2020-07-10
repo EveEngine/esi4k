@@ -2,7 +2,7 @@ package com.eve.engine.esi4k.model
 
 import com.fasterxml.jackson.annotation.JsonProperty
 
-data class SkillQueue (
+open class SkillQueue (
         @JsonProperty("finish_date") val finishDate: String? = null,
         @JsonProperty("finished_level") val finishedLevel: Int,
         @JsonProperty("level_end_sp") val levelEndSp: Int? = null,

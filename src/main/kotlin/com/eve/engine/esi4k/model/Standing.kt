@@ -2,7 +2,7 @@ package com.eve.engine.esi4k.model
 
 import com.fasterxml.jackson.annotation.JsonProperty
 
-data class Standing (
+open class Standing (
     @JsonProperty("from_id") val fromId: Int,
     @JsonProperty("from_type") val fromType: StandingType,
     @JsonProperty("standing") val standing: Float

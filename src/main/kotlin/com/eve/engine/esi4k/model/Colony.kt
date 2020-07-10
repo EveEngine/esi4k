@@ -2,7 +2,7 @@ package com.eve.engine.esi4k.model
 
 import com.fasterxml.jackson.annotation.JsonProperty
 
-data class Colony (
+open class Colony (
         @JsonProperty("last_update") val lastUpdate: String,
         @JsonProperty("num_pins") val numPins: Int,
         @JsonProperty("owner_id") val ownerId: Int,

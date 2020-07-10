@@ -2,7 +2,7 @@ package com.eve.engine.esi4k.model
 
 import com.fasterxml.jackson.annotation.JsonProperty
 
-data class Faction (
+open class Faction (
         @JsonProperty("corporation_id") val corporationId: Int? = null,
         @JsonProperty("description") val description: String,
         @JsonProperty("faction_id") val factionId: Int,

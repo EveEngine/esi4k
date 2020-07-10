@@ -2,7 +2,7 @@ package com.eve.engine.esi4k.model
 
 import com.fasterxml.jackson.annotation.JsonProperty
 
-data class Mail (
+open class Mail (
         @JsonProperty("body") val body: String? = null,
         @JsonProperty("from") val from: Int? = null,
         @JsonProperty("labels") val labels: List<Int>? = null,

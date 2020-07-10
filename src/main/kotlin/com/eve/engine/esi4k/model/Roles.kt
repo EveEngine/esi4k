@@ -3,7 +3,7 @@ package com.eve.engine.esi4k.model
 import com.fasterxml.jackson.annotation.JsonCreator
 import com.fasterxml.jackson.annotation.JsonProperty
 
-data class Roles (
+open class Roles (
     @JsonProperty("roles") val roles: List<CharacterRoles>? = null,
     @JsonProperty("roles_at_base") val rolesAtBase: List<CharacterRoles>? = null,
     @JsonProperty("roles_at_hq") val rolesAtHq: List<CharacterRoles>? = null,

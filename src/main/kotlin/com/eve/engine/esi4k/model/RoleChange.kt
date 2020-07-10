@@ -3,7 +3,7 @@ package com.eve.engine.esi4k.model
 import com.fasterxml.jackson.annotation.JsonProperty
 import javax.management.monitor.StringMonitor
 
-data class RoleChange (
+open class RoleChange (
     @JsonProperty("changed_at") val changedAt: String,
     @JsonProperty("character_id") val characterId: Int,
     @JsonProperty("issuer_id") val issuerId: Int,

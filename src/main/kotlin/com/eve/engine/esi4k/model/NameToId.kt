@@ -2,7 +2,7 @@ package com.eve.engine.esi4k.model
 
 import com.fasterxml.jackson.annotation.JsonProperty
 
-data class NameToIdResult (
+open class NameToIdResult (
         @JsonProperty("agent") val agent: List<NameToId>? = null,
         @JsonProperty("alliance") val alliance: List<NameToId>? = null,
         @JsonProperty("character") val character: List<NameToId>? = null,
@@ -16,7 +16,7 @@ data class NameToIdResult (
         @JsonProperty("structure") val structure: List<Long>? = null
 )
 
-data class NameToId (
+open class NameToId (
         @JsonProperty("id") val id: Int,
         @JsonProperty("name") val name: String
 )

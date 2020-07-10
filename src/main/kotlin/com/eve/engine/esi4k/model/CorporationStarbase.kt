@@ -2,7 +2,7 @@ package com.eve.engine.esi4k.model
 
 import com.fasterxml.jackson.annotation.JsonProperty
 
-data class CorporationStarbase (
+open class CorporationStarbase (
     @JsonProperty("moon_id") val moonId: Int? = null,
     @JsonProperty("onlined_since") val onlinedSince: String? = null,
     @JsonProperty("reinforced_until") val reinforcedUntil: String? = null,

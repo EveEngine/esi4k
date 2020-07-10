@@ -3,7 +3,7 @@ package com.eve.engine.esi4k.model
 import com.fasterxml.jackson.annotation.JsonCreator
 import com.fasterxml.jackson.annotation.JsonProperty
 
-data class Starbase (
+open class Starbase (
     @JsonProperty("allow_alliance_members") val allowAllianceMembers: Boolean,
     @JsonProperty("allow_corporation_members") val allowCorporationMembers: Boolean,
     @JsonProperty("anchor") val anchor: Accessor,
@@ -20,7 +20,7 @@ data class Starbase (
     @JsonProperty("use_alliance_standings") val useAllianceStanding: Boolean
 )
 
-data class Fuel (
+open class Fuel (
     @JsonProperty("quantity") val quantity: Int,
     @JsonProperty("type_id") val typeId: Int
 )

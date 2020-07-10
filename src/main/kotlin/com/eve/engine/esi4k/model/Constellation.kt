@@ -2,7 +2,7 @@ package com.eve.engine.esi4k.model
 
 import com.fasterxml.jackson.annotation.JsonProperty
 
-data class Constellation (
+open class Constellation (
         @JsonProperty("constellation_id") val constellationId: Int,
         @JsonProperty("name") val name: String,
         @JsonProperty("position") val position: Position,

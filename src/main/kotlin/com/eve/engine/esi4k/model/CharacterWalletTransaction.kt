@@ -2,7 +2,7 @@ package com.eve.engine.esi4k.model
 
 import com.fasterxml.jackson.annotation.JsonProperty
 
-data class CharacterWalletTransaction(
+open class CharacterWalletTransaction(
         @JsonProperty("client_id") val clientId: Int,
         @JsonProperty("date") val date: String,
         @JsonProperty("is_buy") val isBuy: Boolean,

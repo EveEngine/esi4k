@@ -2,7 +2,7 @@ package com.eve.engine.esi4k.model
 
 import com.fasterxml.jackson.annotation.JsonProperty
 
-data class DogmaAttribute (
+open class DogmaAttribute (
     @JsonProperty("attribute_id") val attributeId: Int,
     @JsonProperty("default_value") val defaultValue: Float? = null,
     @JsonProperty("description") val description: String? = null,

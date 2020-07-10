@@ -2,7 +2,7 @@ package com.eve.engine.esi4k.model
 
 import com.fasterxml.jackson.annotation.JsonProperty
 
-data class DogmaEffect (
+open class DogmaEffect (
     @JsonProperty("description") val description: String? = null,
     @JsonProperty("disallow_auto_repeat") val disallowAutoRepeat: Boolean? = null,
     @JsonProperty("discharge_attribute_id") val dischargeAttributeId: Int? = null,

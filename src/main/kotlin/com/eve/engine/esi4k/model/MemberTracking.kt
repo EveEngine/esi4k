@@ -2,7 +2,7 @@ package com.eve.engine.esi4k.model
 
 import com.fasterxml.jackson.annotation.JsonProperty
 
-data class MemberTracking (
+open class MemberTracking (
     @JsonProperty("base_id") val baseId: Int? = null,
     @JsonProperty("character_id") val characterId: Int,
     @JsonProperty("location_id") val locationId: Long? = null,

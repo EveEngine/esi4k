@@ -3,12 +3,12 @@ package com.eve.engine.esi4k.model
 import com.fasterxml.jackson.annotation.JsonCreator
 import com.fasterxml.jackson.annotation.JsonProperty
 
-data class SystemCostIndicies (
+open class SystemCostIndicies (
         @JsonProperty("cost_indices") val costIndicies: List<CostIndex>,
         @JsonProperty("solar_system_id") val solarSystemId: Int
 )
 
-data class CostIndex (
+open class CostIndex (
         @JsonProperty("activity") val activity:  Activity,
         @JsonProperty("cost_index") val costIndex: Float
 )

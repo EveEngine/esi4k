@@ -2,7 +2,7 @@ package com.eve.engine.esi4k.model
 
 import com.fasterxml.jackson.annotation.JsonProperty
 
-data class Incursion (
+open class Incursion (
     @JsonProperty("constellation_id") val constellationId: Int,
     @JsonProperty("faction_id") val factionId: Int,
     @JsonProperty("has_boss") val hasBoss: Boolean,

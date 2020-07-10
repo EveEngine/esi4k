@@ -2,7 +2,7 @@ package com.eve.engine.esi4k.model
 
 import com.fasterxml.jackson.annotation.JsonProperty
 
-data class Alliance(
+open class Alliance(
     @JsonProperty("creator_corporation_id") val creatorCorporationId: Int,
     @JsonProperty("creator_id") val creatorId: Int,
     @JsonProperty("date_founded") val dateFounded: String,

@@ -4,7 +4,7 @@ package com.eve.engine.esi4k.model
 import com.fasterxml.jackson.annotation.JsonCreator
 import com.fasterxml.jackson.annotation.JsonProperty
 
-data class Station(
+open class Station(
         @JsonProperty("owner") val owner: Int? = null,
         @JsonProperty("reprocessing_efficiency") val reprocessingEfficiency: Double,
         @JsonProperty("office_rental_cost") val officeRentalCost: Int,

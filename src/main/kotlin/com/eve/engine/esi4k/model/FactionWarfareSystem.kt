@@ -2,7 +2,7 @@ package com.eve.engine.esi4k.model
 
 import com.fasterxml.jackson.annotation.JsonProperty
 
-data class FactionWarfareSystem (
+open class FactionWarfareSystem (
     @JsonProperty("contested") val contested: Contested,
     @JsonProperty("occupier_faction_id") val occupierFactionId: Int,
     @JsonProperty("owner_faction_id") val ownerFactionId: Int,

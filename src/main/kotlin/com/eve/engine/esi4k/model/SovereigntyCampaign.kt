@@ -3,7 +3,7 @@ package com.eve.engine.esi4k.model
 import com.fasterxml.jackson.annotation.JsonCreator
 import com.fasterxml.jackson.annotation.JsonProperty
 
-data class SovereigntyCampaign (
+open class SovereigntyCampaign (
         @JsonProperty("attackers_score") val attackersScore: Float? = null,
         @JsonProperty("campaign_id") val campaignId: Int,
         @JsonProperty("constellation_id") val constellationId: Int,
@@ -16,7 +16,7 @@ data class SovereigntyCampaign (
         @JsonProperty("structure_id") val structureId: Long
 )
 
-data class CampaignParticipant (
+open class CampaignParticipant (
         @JsonProperty("alliance_id") val allianceId: Int,
         @JsonProperty("score") val score: Float
 )

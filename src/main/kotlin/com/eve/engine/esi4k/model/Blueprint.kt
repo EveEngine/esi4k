@@ -2,7 +2,7 @@ package com.eve.engine.esi4k.model
 
 import com.fasterxml.jackson.annotation.JsonProperty
 
-data class Blueprint(
+open class Blueprint(
     @JsonProperty("item_id") val itemId: Long,
     @JsonProperty("location_flag") val locationFlag: LocationFlag,
     @JsonProperty("location_id") val locationId: Int,

@@ -3,7 +3,7 @@ package com.eve.engine.esi4k.model
 import com.fasterxml.jackson.annotation.JsonCreator
 import com.fasterxml.jackson.annotation.JsonProperty
 
-data class CharacterFleet (
+open class CharacterFleet (
         @JsonProperty("fleet_id") val fleetId: Long,
         @JsonProperty("role") val role: FleetRole,
         @JsonProperty("squad_id") val squadId: Long,

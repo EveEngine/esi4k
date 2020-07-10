@@ -2,7 +2,7 @@ package com.eve.engine.esi4k.model
 
 import com.fasterxml.jackson.annotation.JsonProperty
 
-data class Killmail (
+open class Killmail (
         @JsonProperty("attackers") val attackers: List<Attacker>,
         @JsonProperty("killmail_id") val killmailId: Int,
         @JsonProperty("killmail_time") val killmailTime: String,
@@ -12,7 +12,7 @@ data class Killmail (
         @JsonProperty("war_id") val warId: Int
 )
 
-data class Attacker (
+open class Attacker (
         @JsonProperty("alliance_id") val allianceId: Int? = null,
         @JsonProperty("character_id") val characterId: Int? = null,
         @JsonProperty("corporation_id") val corporationId: Int? = null,
@@ -24,7 +24,7 @@ data class Attacker (
         @JsonProperty("weapon_type_id") val weaponTypeId: Int? = null
 )
 
-data class Victim (
+open class Victim (
         @JsonProperty("alliance_id") val allianceId: Int? = null,
         @JsonProperty("character_id") val characterId: Int? = null,
         @JsonProperty("corporation_id") val corporationId: Int? = null,
@@ -35,7 +35,7 @@ data class Victim (
         @JsonProperty("ship_type_id") val shipTypeId: Int
 )
 
-data class VictimItem (
+open class VictimItem (
         @JsonProperty("flag") val flag: Int,
         @JsonProperty("item_type_id") val itemTypeId: Int,
         @JsonProperty("items") val items: List<ContainerItems>? = null,
@@ -44,7 +44,7 @@ data class VictimItem (
         @JsonProperty("singleton") val singleton: Int
 )
 
-data class ContainerItems (
+open class ContainerItems (
         @JsonProperty("flag") val flag: Int,
         @JsonProperty("item_type_id") val itemTypeId: Int,
         @JsonProperty("quantity_destroyed") val quantityDestroyed: Long? = null,

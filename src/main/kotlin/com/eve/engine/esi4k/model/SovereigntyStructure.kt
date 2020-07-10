@@ -2,7 +2,7 @@ package com.eve.engine.esi4k.model
 
 import com.fasterxml.jackson.annotation.JsonProperty
 
-data class SovereigntyStructure (
+open class SovereigntyStructure (
         @JsonProperty("alliance_id") val allianceId: Int,
         @JsonProperty("solar_system_id") val solarSystemId: Int,
         @JsonProperty("structure_id") val structureId: Long,

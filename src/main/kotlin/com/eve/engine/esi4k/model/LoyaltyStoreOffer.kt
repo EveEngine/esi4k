@@ -2,7 +2,7 @@ package com.eve.engine.esi4k.model
 
 import com.fasterxml.jackson.annotation.JsonProperty
 
-data class LoyaltyStoreOffer (
+open class LoyaltyStoreOffer (
         @JsonProperty("ak_cost") val akCost: Int? = null,
         @JsonProperty("isk_cost") val iskCost: Long,
         @JsonProperty("ip_cost") val ipCost: Int,
@@ -12,7 +12,7 @@ data class LoyaltyStoreOffer (
         @JsonProperty("type_id") val typeId: Int
 )
 
-data class RequiredItem (
+open class RequiredItem (
         @JsonProperty("type_id") val typeId: Int,
         @JsonProperty("quantity") val quantity: Int
 )

@@ -2,19 +2,19 @@ package com.eve.engine.esi4k.model
 
 import com.fasterxml.jackson.annotation.JsonProperty
 
-data class ColonyLayout (
+open class ColonyLayout (
         @JsonProperty("links") val links: List<Link>,
         @JsonProperty("pins") val pins: List<Pin>,
         @JsonProperty("routes") val routes: List<Route>
 )
 
-data class Link (
+open class Link (
         @JsonProperty("destination_pin_id") val destinationPinId: Long,
         @JsonProperty("link_level") val linkLevel: Int,
         @JsonProperty("source_pin_id") val sourcePinId: Long
 )
 
-data class Pin (
+open class Pin (
         @JsonProperty("contents") val contents: List<PinContent>? = null,
         @JsonProperty("expiry_time") val expiryTime: String? = null,
         @JsonProperty("extractor_details") val extractorDetails: List<ExtractorDetails>,
@@ -28,12 +28,12 @@ data class Pin (
         @JsonProperty("type_id") val typeId: Int
 )
 
-data class PinContent (
+open class PinContent (
         @JsonProperty("amount") val amount: Long,
         @JsonProperty("type_id") val typeId: Int
 )
 
-data class ExtractorDetails (
+open class ExtractorDetails (
         @JsonProperty("cycle_time") val cycleTime: Int? = null,
         @JsonProperty("head_radius") val headRadius: Float? = null,
         @JsonProperty("heads") val heads: List<Head>,
@@ -41,17 +41,17 @@ data class ExtractorDetails (
         @JsonProperty("qty_per_cycle") val qtyPerCycle: Int
 )
 
-data class Head (
+open class Head (
         @JsonProperty("head_id") val headId: Int,
         @JsonProperty("latitude") val latitude: Float,
         @JsonProperty("longitude") val longitude: Float
 )
 
-data class FactoryDetails (
+open class FactoryDetails (
         @JsonProperty("schematic_id") val schematicId: Int
 )
 
-data class Route (
+open class Route (
         @JsonProperty("content_type_id") val contentTypeId: Int,
         @JsonProperty("destination_pin_id") val destinationPinId: Long,
         @JsonProperty("quantity") val quantity: Float,

@@ -2,7 +2,7 @@ package com.eve.engine.esi4k.model
 
 import com.fasterxml.jackson.annotation.JsonProperty
 
-data class Type(
+open class Type(
         @JsonProperty("group_id") val groupId: Int,
         @JsonProperty("type_id") val typeId: Int,
         @JsonProperty("name") val name: String,
@@ -21,12 +21,12 @@ data class Type(
         @JsonProperty("volume") val volume: Float? = null
 )
 
-data class TypeDogmaAttribute(
+open class TypeDogmaAttribute(
         @JsonProperty("attribute_id") val attributeId: Int,
         @JsonProperty("value") val value: Float
 )
 
-data class TypeDogmaEffect (
+open class TypeDogmaEffect (
         @JsonProperty("effect_id") val effectId: Int,
         @JsonProperty("is_default") val isDefault: Boolean
 )

@@ -2,7 +2,7 @@ package com.eve.engine.esi4k.model
 
 import com.fasterxml.jackson.annotation.JsonProperty
 
-data class SearchResult (
+open class SearchResult (
         @JsonProperty("agent") val agent: List<Int>? = null,
         @JsonProperty("alliance") val alliance: List<Int>? = null,
         @JsonProperty("character") val character: List<Int>? = null,

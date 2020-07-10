@@ -2,7 +2,7 @@ package com.eve.engine.esi4k.model
 
 import com.fasterxml.jackson.annotation.JsonProperty
 
-data class MailHeader (
+open class MailHeader (
         @JsonProperty("from") val from: Int? = null,
         @JsonProperty("is_read") val isRead: Boolean? = null,
         @JsonProperty("labels") val labels: List<Int>? = null,

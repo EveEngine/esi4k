@@ -2,7 +2,7 @@ package com.eve.engine.esi4k.model
 
 import com.fasterxml.jackson.annotation.JsonProperty
 
-data class EffectModifier (
+open class EffectModifier (
     @JsonProperty("domain") val domain: String? = null,
     @JsonProperty("effect_id") val effectId: Int? = null,
     @JsonProperty("func") val func: String,

@@ -3,7 +3,7 @@ package com.eve.engine.esi4k.model
 import com.fasterxml.jackson.annotation.JsonProperty
 
 
-data class PublicContractItem (
+open class PublicContractItem (
     @JsonProperty("is_blueprint_copy") val isBlueprintCopy: Boolean? = null,
     @JsonProperty("is_included") val isIncluded: Boolean,
     @JsonProperty("item_id") val itemId: Long? = null,

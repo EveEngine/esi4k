@@ -2,7 +2,7 @@ package com.eve.engine.esi4k.model
 
 import com.fasterxml.jackson.annotation.JsonProperty
 
-data class MarketOrder (
+open class MarketOrder (
         @JsonProperty("duration") val duration: Int,
         @JsonProperty("is_buy_order") val isBuyOrder: Boolean,
         @JsonProperty("issued") val issued: String,

@@ -2,7 +2,7 @@ package com.eve.engine.esi4k.model
 
 import com.fasterxml.jackson.annotation.JsonProperty
 
-data class MedalGraphic(
+open class MedalGraphic(
     @JsonProperty("color") val color: Int? = null,
     @JsonProperty("part") val part: Int,
     @JsonProperty("graphic") val graphic: String,

@@ -3,7 +3,7 @@ package com.eve.engine.esi4k.model
 import com.fasterxml.jackson.annotation.JsonProperty
 import javax.management.relation.Role
 
-data class CorporationTitles (
+open class CorporationTitles (
     @JsonProperty("grantable_roles") val grantableRoles: List<CharacterRoles>? = null,
     @JsonProperty("grantable_roles_at_base") val grantableRolesAtBase: List<CharacterRoles>? = null,
     @JsonProperty("grantable_roles_at_hq") val grantableRolesAtHq: List<CharacterRoles>? = null,

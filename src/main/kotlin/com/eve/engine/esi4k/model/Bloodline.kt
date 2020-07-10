@@ -2,7 +2,7 @@ package com.eve.engine.esi4k.model
 
 import com.fasterxml.jackson.annotation.JsonProperty
 
-data class Bloodline (
+open class Bloodline (
         @JsonProperty("bloodline_id") val bloodlineId: Int,
         @JsonProperty("charisma") val charisma: Int,
         @JsonProperty("corporation_id") val corporationId: Int,

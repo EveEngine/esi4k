@@ -6,7 +6,7 @@ import com.fasterxml.jackson.annotation.JsonSetter
 /**
  *  Status of an Eve ESI route.
  */
-data class ESIStatus(
+open class ESIStatus(
     @JsonProperty("endpoint") val endpoint: String,
     @JsonProperty("method") val method: String,
     @JsonProperty("route") val route: String,

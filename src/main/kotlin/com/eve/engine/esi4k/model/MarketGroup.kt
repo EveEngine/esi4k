@@ -2,7 +2,7 @@ package com.eve.engine.esi4k.model
 
 import com.fasterxml.jackson.annotation.JsonProperty
 
-data class MarketGroup (
+open class MarketGroup (
         @JsonProperty("description") val description: String,
         @JsonProperty("market_group_id") val marketGroupId: Int,
         @JsonProperty("name") val name: String,

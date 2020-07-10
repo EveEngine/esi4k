@@ -3,14 +3,14 @@ package com.eve.engine.esi4k.model
 import com.fasterxml.jackson.annotation.JsonCreator
 import com.fasterxml.jackson.annotation.JsonProperty
 
-data class NewMail (
+open class NewMail (
         @JsonProperty("approved_cost") val approvedCost: Long? = null,
         @JsonProperty("body") val body: String,
         @JsonProperty("recipients") val recipients: List<Recipient>,
         @JsonProperty("subject") val subject: String
 )
 
-data class Recipient(
+open class Recipient(
         @JsonProperty("recipient_id") val recipientId: Int,
         @JsonProperty("recipient_type") val recipientType: String
 )

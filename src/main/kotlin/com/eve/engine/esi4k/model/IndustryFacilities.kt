@@ -2,7 +2,7 @@ package com.eve.engine.esi4k.model
 
 import com.fasterxml.jackson.annotation.JsonProperty
 
-data class IndustryFacilities (
+open class IndustryFacilities (
         @JsonProperty("facility_id") val facilityId: Long,
         @JsonProperty("owner_id") val ownerId: Int,
         @JsonProperty("region_id") val regionId: Int,

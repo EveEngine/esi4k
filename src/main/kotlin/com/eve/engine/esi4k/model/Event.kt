@@ -3,7 +3,7 @@ package com.eve.engine.esi4k.model
 import com.fasterxml.jackson.annotation.JsonCreator
 import com.fasterxml.jackson.annotation.JsonProperty
 
-data class Event(
+open class Event(
     @JsonProperty("date") val date: String,
     @JsonProperty("duration") val duration: Int,
     @JsonProperty("event_id") val eventId: Int,

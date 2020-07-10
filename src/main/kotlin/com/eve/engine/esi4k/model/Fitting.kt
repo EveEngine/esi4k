@@ -3,7 +3,7 @@ package com.eve.engine.esi4k.model
 import com.fasterxml.jackson.annotation.JsonCreator
 import com.fasterxml.jackson.annotation.JsonProperty
 
-data class Fitting (
+open class Fitting (
     @JsonProperty("description") val description: String,
     @JsonProperty("fitting_id") val fittingId: Int,
     @JsonProperty("items") val items: List<FittingItem>,
@@ -11,13 +11,13 @@ data class Fitting (
     @JsonProperty("ship_type_id") val shipTypeId: Int
 )
 
-data class FittingItem (
+open class FittingItem (
     @JsonProperty("flag") val flag: FittingFlag,
     @JsonProperty("quantity)") val quantity: Int,
     @JsonProperty("type_id") val typeId: Int
 )
 
-data class FittingId (
+open class FittingId (
     @JsonProperty("fitting_id") val fittingId: Int
 )
 

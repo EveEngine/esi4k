@@ -2,7 +2,7 @@ package com.eve.engine.esi4k.model
 
 import com.fasterxml.jackson.annotation.JsonProperty
 
-data class FleetMember(
+open class FleetMember(
         @JsonProperty("role_name") val roleName: String,
         @JsonProperty("ship_type_id") val shipTypeId: Int,
         @JsonProperty("takes_fleet_warp") val takesFleetWarp: Boolean,

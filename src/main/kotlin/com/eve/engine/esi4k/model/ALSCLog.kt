@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonCreator
 import com.fasterxml.jackson.annotation.JsonProperty
 
 /** Alliance Secure Container Log */
-data class ALSCLog (
+open class ALSCLog (
     @JsonProperty("action") val action: LogAction,
     @JsonProperty("character_id") val characterId: Int,
     @JsonProperty("container_id") val containerId: Long,

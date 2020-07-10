@@ -2,17 +2,17 @@ package com.eve.engine.esi4k.model
 
 import com.fasterxml.jackson.annotation.JsonProperty
 
-data class CharacterYearStats (
+open class CharacterYearStats (
     @JsonProperty("character") val character: CharacterStats? = null
 )
 
-data class CharacterStats(
+open class CharacterStats(
     @JsonProperty("days_of_inactivity") val daysOfInactivity: Long? = null,
     @JsonProperty("minutes") val minutes: Long? = null,
     @JsonProperty("sessions_started") val sessionsStarted: Long? = null
 )
 
-data class CombatStats(
+open class CombatStats(
     @JsonProperty("cap_drainedby_npc") val capDrainByNPC: Long? = null,
     @JsonProperty("cap_drainedby_pc") val capDrainByPC: Long? = null,
     @JsonProperty("cap_draining_pc") val capDrainingPC: Long? = null,

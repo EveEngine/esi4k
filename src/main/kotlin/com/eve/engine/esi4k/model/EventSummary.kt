@@ -3,7 +3,7 @@ package com.eve.engine.esi4k.model
 import com.fasterxml.jackson.annotation.JsonCreator
 import com.fasterxml.jackson.annotation.JsonProperty
 
-data class EventSummary(
+open class EventSummary(
     @JsonProperty("event_response") val eventResponse: EventResponse? = null,
     @JsonProperty("event_id") val eventId: Int? = null,
     @JsonProperty("importance") val importance: Int? = null,

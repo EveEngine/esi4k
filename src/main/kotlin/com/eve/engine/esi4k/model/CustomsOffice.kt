@@ -2,7 +2,7 @@ package com.eve.engine.esi4k.model
 
 import com.fasterxml.jackson.annotation.JsonProperty
 
-data class CustomsOffice (
+open class CustomsOffice (
         @JsonProperty("alliance_tax_rate") val allianceTaxRate: Float? = null,
         @JsonProperty("allow_access_with_standings") val allowAccessWithStandings: Boolean,
         @JsonProperty("allow_alliance_access") val allowAllianceAccess: Boolean,

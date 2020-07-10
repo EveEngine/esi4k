@@ -2,7 +2,7 @@ package com.eve.engine.esi4k.model
 
 import com.fasterxml.jackson.annotation.JsonProperty
 
-data class Asset(
+open class Asset(
     @JsonProperty("is_blueprint_copy") val isBlueprintCopy: Boolean?,
     @JsonProperty("is_singleton") val isSingleton: Boolean,
     @JsonProperty("item_id") val itemId: Long,
@@ -13,12 +13,12 @@ data class Asset(
     @JsonProperty("type_id") val typeId: Int
 )
 
-data class AssetLocation(
+open class AssetLocation(
     @JsonProperty("item_id") val itemId: Long,
     @JsonProperty("position") val position: Position
 )
 
-data class AssetName(
+open class AssetName(
     @JsonProperty("item_id") val itemId: Long,
     @JsonProperty("name") val name: String
 )

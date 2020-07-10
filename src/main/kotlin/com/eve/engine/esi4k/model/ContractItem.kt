@@ -2,7 +2,7 @@ package com.eve.engine.esi4k.model
 
 import com.fasterxml.jackson.annotation.JsonProperty
 
-data class ContractItem (
+open class ContractItem (
     @JsonProperty("is_included") val isIncluded: Boolean,
     @JsonProperty("is_singleton") val isSingleton: Boolean,
     @JsonProperty("quantity") val quantity: Int,

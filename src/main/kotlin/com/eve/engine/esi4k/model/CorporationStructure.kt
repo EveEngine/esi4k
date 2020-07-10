@@ -3,7 +3,7 @@ package com.eve.engine.esi4k.model
 import com.fasterxml.jackson.annotation.JsonCreator
 import com.fasterxml.jackson.annotation.JsonProperty
 
-data class CorporationStructure (
+open class CorporationStructure (
     @JsonProperty("corporation_id") val corporationId: Int,
     @JsonProperty("fuel_expires") val fuelExpires: String? = null,
     @JsonProperty("next_reinforce_apply") val nextReinforceApply: String? = null,
@@ -22,7 +22,7 @@ data class CorporationStructure (
     @JsonProperty("unanchors_at") val unanchorsAt: String? = null
  )
 
-data class Service (
+open class Service (
     @JsonProperty("name") val name: String,
     @JsonProperty("state") val state: ServiceState
 )

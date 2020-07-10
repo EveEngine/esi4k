@@ -2,7 +2,7 @@ package com.eve.engine.esi4k.model
 
 import com.fasterxml.jackson.annotation.JsonProperty
 
-data class Bookmark(
+open class Bookmark(
     @JsonProperty("bookmark_id") val bookmarkId: Int,
     @JsonProperty("item") val item: Item? = null,
     @JsonProperty("notes") val notes: String ,
@@ -14,7 +14,7 @@ data class Bookmark(
     @JsonProperty("location_id") val locationId: Int
 )
 
-data class BookmarkFolder(
+open class BookmarkFolder(
     @JsonProperty("folder_id") val folderId: Int,
     @JsonProperty("name") val name: String
 )

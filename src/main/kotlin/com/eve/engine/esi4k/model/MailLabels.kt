@@ -4,12 +4,12 @@ import com.fasterxml.jackson.annotation.JsonCreator
 import com.fasterxml.jackson.annotation.JsonGetter
 import com.fasterxml.jackson.annotation.JsonProperty
 
-data class MailLabels (
+open class MailLabels (
         @JsonProperty("labels") val labels: List<MailLabel>? = null,
         @JsonProperty("total_unread_count") val totalUnreadCount: Int? = null
 )
 
-data class MailLabel(
+open class MailLabel(
         @JsonProperty("color") val color: LabelColor? = null,
         @JsonProperty("label_id") val labelId: Int? = null,
         @JsonProperty("name") val name: String? = null,

@@ -2,7 +2,7 @@ package com.eve.engine.esi4k.model
 
 import com.fasterxml.jackson.annotation.JsonProperty
 
-data class AgentResearch(
+open class AgentResearch(
     @JsonProperty("remainder_points") val remainderPoints: Float,
     @JsonProperty("agent_id") val agentId: Int,
     @JsonProperty("skill_type_id") val skillTypeId: Int,

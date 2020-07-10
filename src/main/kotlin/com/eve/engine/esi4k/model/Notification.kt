@@ -3,7 +3,7 @@ package com.eve.engine.esi4k.model
 import com.fasterxml.jackson.annotation.JsonCreator
 import com.fasterxml.jackson.annotation.JsonProperty
 
-data class Notification(
+open class Notification(
     @JsonProperty("is_read") val isRead: Boolean? = null,
     @JsonProperty("sender_type") val senderType: SenderType,
     @JsonProperty("notification_id") val notificationId: Int,

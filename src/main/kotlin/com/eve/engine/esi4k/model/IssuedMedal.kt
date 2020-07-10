@@ -2,7 +2,7 @@ package com.eve.engine.esi4k.model
 
 import com.fasterxml.jackson.annotation.JsonProperty
 
-data class IssuedMedal (
+open class IssuedMedal (
     @JsonProperty("character_id") val characterId: Int,
     @JsonProperty("issued_at") val issuedAt: String,
     @JsonProperty("issuer_id") val issuerId: Int,
